@@ -4,9 +4,9 @@ There are three types of regular expressions:
 
 | Name | grep Switch | Power | Speed | Standard |
 | --- | --- | --- | --- | --- |
-| BREs (Basic Regular Expressions) | -G (default) | Low | High | POSIX |
-| EREs (Extended Regular Expressions) | -E | Mid | Mid | POSIX |
-| PCREs (Perl Compatible Regular Expressions) | -P | High | Low | PCRE |
+| BREs (Basic Regular Expressions) | `-G` (default) | Low | High | POSIX |
+| EREs (Extended Regular Expressions) | `-E` | Mid | Mid | POSIX |
+| PCREs (Perl Compatible Regular Expressions) | `-P` | High | Low | PCRE |
 
 ERE special characters and special character classes:
 

@@ -6,6 +6,9 @@ Searches for patterns in files and, by default, prints each line that contains a
 
 Debian includes the variant programs `egrep`, `fgrep`, and `rgrep` which are the same as `grep -E`, `grep -F`, and `grep -r`, respectively. These variants are deprecated. For portability reasons, it is recommended to use `grep` with the related option only.
 
+Exit status: `0` if a line is selected; `1` if no lines were selected; `2` if an error occurred.
+However, if `-q` is used and a line is selected, the exit status is `0` even if an error occurred.
+
 | Short | Long | Description |
 | --- | --- | --- |
 | -F | --fixed-strings | Interpret pattern as normal non-regex text. |
@@ -27,7 +30,7 @@ Debian includes the variant programs `egrep`, `fgrep`, and `rgrep` which are the
 | -l | --files-with-matches | Suppress normal output and instead, print the name of each input file from which output would normally have been printed. Scanning each input file stops upon first match. |
 | -L | --files-without-match | Suppress normal output and instead, print the name of each input file from which no output would normally have been printed. |
 | -m NUM | --max-count=NUM | Stop reading a file after NUM matching lines. |
-| -q | --quite --silent | Do not write anything to standard output. Exit immediately with 0 status if any match is found, 1 if no match is found, and 2 for errors. |
+| -q | --quiet --silent | Do not write anything to standard output. Exit immediately with 0 status if any match is found, 1 if no match is found, and 2 for errors. |
 | -s | --no-messages | Suppress error messages about nonexistent or unreadable files, but still output matching lines to standard output. |
 | -h | --no-filename | Suppress the prefixing of file names on output. This is the default when there is only one file (or only standard input) to search. |
 | -H | --with-filename | Print the file name for each match. This is the default when there is more than one file to search. |
@@ -42,8 +45,6 @@ Debian includes the variant programs `egrep`, `fgrep`, and `rgrep` which are the
 |  | --exclude-dir=GLOB | Skip any directory with a name that matches GLOB (using wildcards). |
 |  | --exclude-from=FILE | Same as --exclude, but reading from the FILE. |
 |  | --include=GLOB | Search only files whose base name matches GLOB. If contradictory --include and --exclude options are given, the last matching one wins. If no --include or --exclude options match, a file is included unless the first such option is --include. |
-
-Normally the exit status is `0` if a line is selected, `1` if no lines were selected, and `2` if an error occurred. However, if `-q` is used and a line is selected, the exit status is `0` even if an error occurred.
 
 Examples (for `-G`, `-E`, and `-P` examples, check the [RegEx](05-regex.md) section):
 

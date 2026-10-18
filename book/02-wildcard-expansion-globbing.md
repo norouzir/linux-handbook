@@ -1,15 +1,15 @@
 # Wildcard Expansion (Globbing)
 
-File globbing is the process of pattern matching using wildcards. It causes the filename to expand into multiple names (also called wildcard expansion). The wildcards are officially called *metacharacter wildcards*.
+Globbing is the operation that expands a wildcard pattern into the list of pathnames matching the pattern.
 
 | Character | Meaning | Example |
 | --- | --- | --- |
-| * | Any number of alphanumeric characters except / | $ ls c*.txt<br>cake.txt  c2.txt |
-| ? | One alphanumeric character | $ ls b??d<br>bard  bird |
-| [] | Multiple options for single character position | $ ls p[ui]t<br>pit  put<br>$ ls f[a-dt-v]ll<br>fall  full |
-| ! | Negate | $ ls f[!a-dt-v]ll<br>fill  fell |
+| * | Any string, including empty | $ ls c*.txt<br>cake.txt  c2.txt |
+| ? | Any single character | $ ls b??d<br>bard  bird |
+| [...] | Multiple options for single character position | $ ls p[ui]t<br>pit  put<br>$ ls f[a-dt-v]ll<br>fall  full |
+| [!...] | Negate | $ ls f[!a-dt-v]ll<br>fill  fell |
 
-Globbing is performed by the shell, not by the command itself. Therefore, when globbing is used, the shell first expands the patterns into matching pathnames, then passes the resulting arguments to the command.
+Globbing is performed by the shell, not by the command itself. The shell expands patterns into matching pathnames, then passes the resulting arguments to the command.
 
 If no files or directories match a glob pattern, the shell does not expand it and passes the pattern unchanged to the command (this behavior can be changed).
 

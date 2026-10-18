@@ -10,7 +10,7 @@ Unlike shell variables, environment variables are also available inside the subs
 
 If the `SHLVL` value is higher than `1`, it is a subshell.
 
-To change or create a shell variable:
+To create or change a shell variable:
 
 ```bash
 $ v1=v1_content
@@ -25,7 +25,7 @@ $ echo ${arr[*]}   # equivalent to: echo ${arr[@]}
 a 2
 ```
 
-or using `declare` to define the type or behavior of the variable:
+Or using `declare` to define the type or behavior of the variable:
 
 ```bash
 $ declare -r APP_NAME="MyApp"   # read-only
@@ -57,7 +57,7 @@ changed
 $ declare -lr CONFIG_PATH="/etc/myapp/config"
 ```
 
-or using `export` or `declare -x` for environment variables:
+Or using `export` or `declare -x` for environment variables:
 
 ```bash
 $ export v3="v3 content"
@@ -66,7 +66,7 @@ $ declare -x v4="v4 content"
 $ declare -x v2
 ```
 
-`unset` deletes variable and is not equivalent to `var=`. It is not possible to unset a read-only variable, even by using `sudo`.
+`unset` deletes a variable and is not equivalent to `var=` (which sets an empty value). It is not possible to unset a read-only variable, even with `sudo`.
 
 To make a variable permanent, it must be in `~/.bashrc`.
 
