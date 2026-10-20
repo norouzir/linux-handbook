@@ -23,14 +23,14 @@ Exit status: `0` if a match was found or `--help`/`--version` were passed; `1` i
 | `-d <DBPATH>` | `--database=<DBPATH>` | Find matches in the given database (`<DBPATH>`), instead of the default database (`/var/lib/plocate/plocate.db`). This argument can be given multiple times, to search multiple databases. It is also possible to give multiple databases in one argument, separated by `:`. |
 | `-l <N>` | `--limit=<N>` | Stop searching after `<N>` matches have been found. If `--count` is given, the number printed out will be at most `<N>`. |
 | `-e` | `--existing` | Print only entries for files that currently exist. Note that unlike `mlocate`, symlinks are not followed by default (and there is no option to change this). |
-| `-0` | `--null` | Instead of writing a newline after every match, write a NUL (ASCII 0). This is useful for creating unambiguous output when it is to be processed by other tools (like `xargs`), as filenames are allowed to contain embedded newlines. |
-| `-N` | `--literal` | Print entry names without quoting. Normally, `plocate` will escape special characters in filenames, so that they are safe for consumption by typical shells, unless printing to a pipe, but this option will turn off such quoting. |
+| `-0` | `--null` | Instead of a newline, write a NUL (ASCII 0) after each match. Filenames may contain embedded newlines, so NUL delimiters produce unambiguous output for tools such as `xargs`. Because NUL-separated output cannot be quoted for a terminal, plocate prints filenames raw when `-0` is given (equivalent to `-N`). |
+| `-N` | `--literal` | Print entry names without quoting. When printing to a terminal, plocate normally escapes characters that can cause trouble (control characters and `'`, `"`, `\`, and backtick) — using a GNU `ls`-style `$'...'` quoting — so filenames containing them are safe for a shell. Output to a pipe or other non-terminal is unquoted by default; use `-N` to suppress even the terminal-side quoting. |
 | `-q`\* | `--quiet` | Write no messages about errors encountered while reading and processing databases. |
 | `-S`\* | `--statistics` | Write statistics about each read database to standard output instead of searching for files and exit successfully. |
 | `-h` | `--help` | Print out usage information, then exit successfully. |
 | `-V` | `--version` | Print out version information, then exit successfully. |
 
-> \* May not be available in `plocate`. Checking `locate --version` can help.
+> \* Not available in `plocate`. Checking `locate --version` can help.
 
 ## Examples
 
