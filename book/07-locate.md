@@ -29,53 +29,55 @@ Exit status: `0` if a match was found or `--help`/`--version` were passed; `1` i
 | `-S`\* | `--statistics` | Write statistics about each read database to standard output instead of searching for files and exit successfully. |
 | `-h` | `--help` | Print out usage information, then exit successfully. |
 | `-V` | `--version` | Print out version information, then exit successfully. |
-
 > \* Not available in `plocate`. Checking `locate --version` can help.
 
-## Examples
+`LOCATE_PATH`: Colon-separated list of database paths. If set, is appended to the databases given by `--database` (or the default). In GNU/BSD `locate` it replaces the default database instead.
 
+Examples:
 ```bash
-# Basic substring search
-$ locate bashrc
-/home/user/.bashrc
-/etc/bash.bashrc
+$ locate bash_alias
+/home/slow/.bash_aliases
+$ sudo updatedb -U ~/sandbox/ -o ~/sandbox/my.db
+$ tree
+.
+├── my.db
+└── Readmes
+    ├── info.txt
+    ├── README.md
+    └── readme.txt
 
-# Case-insensitive search
-$ locate -i README
-/home/user/project/README.md
-/home/user/docs/readme.txt
-
-# Limit results
-$ locate -l 5 .conf
-/etc/dbus-1/session.conf
-/etc/fonts/fonts.conf
-/etc/host.conf
-/etc/ld.so.conf
-/etc/resolv.conf
-
-# Match basename only
-$ locate -b bashrc
-/home/user/.bashrc
-
-# Regular expression search
-$ locate -r '^.*\.conf$'
-
-# Count matches
-$ locate -c .log
-142
-
-# Show database statistics
-$ locate -S
-Database /var/lib/plocate/plocate.db:
-    1,234,567 entries
-    89.2 MiB
-
-# Use custom database
-$ locate -d ~/my.db pattern
-
-# Only show existing files
-$ locate -e pattern
-
-# Combine with grep for more filtering
-$ locate .txt | grep -v ".git"
+2 directories, 4 files
+$ locate -d ~/sandbox/my.db readme   # equivalent to: locate -d ~/sandbox/my.db *readme*
+/home/slow/sandbox/Readmes/readme.txt
+$ locate -d ~/sandbox/my.db -i readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+/home/slow/sandbox/Readmes/info.txt
+/home/slow/sandbox/Readmes/readme.txt
+$ locate -d ~/sandbox/my.db -ib readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+/home/slow/sandbox/Readmes/readme.txt
+$ locate -d ~/sandbox/my.db -c Readme
+4
+$ locate -d ~/sandbox/my.db -l2 Readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+$ locate -d ~/sandbox/my.db -ibr ^readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+/home/slow/sandbox/Readmes/readme.txt
+$ rm Readmes/readme.txt
+$ locate -d ~/sandbox/my.db -i readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+/home/slow/sandbox/Readmes/info.txt
+/home/slow/sandbox/Readmes/readme.txt
+$ locate -d ~/sandbox/my.db -ie readme
+/home/slow/sandbox/Readmes
+/home/slow/sandbox/Readmes/README.md
+/home/slow/sandbox/Readmes/info.txt
+$ locate -d ~/sandbox/my.db -i readme Info
+/home/slow/sandbox/Readmes/info.txt
+$ locate .txt | grep -v "\.git"   # filtering results
 ```
