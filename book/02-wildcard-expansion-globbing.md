@@ -2,6 +2,9 @@
 
 Globbing is the operation that expands a wildcard pattern into the list of pathnames matching the pattern.
 
+Unlike regex patterns, a glob pattern is implicitly anchored at both ends — the whole string must match, unless relaxed with `*`.
+For example, the glob pattern equivalent for `log$` regex pattern, is `*log`.
+
 | Character | Meaning | Example |
 | --- | --- | --- |
 | * | Any string, including empty | $ ls c*.txt<br>cake.txt  c2.txt |
@@ -293,3 +296,10 @@ pic1.jpeg  pic2.jpeg  .pic3.jpeg  .pic4.jpeg  .pic5.jpeg
 $ printf '%s  ' .*; echo
 .  ..  .pic3.jpeg  .pic4.jpeg  .pic5.jpeg  
 ```
+
+For more information:
+
+```bash
+$ man 7 glob
+```
+

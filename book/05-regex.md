@@ -1,5 +1,10 @@
 # RegEx
 
+A regular expression (regex) is a sequence of characters that defines a search pattern.
+
+Unlike glob patterns, a regex pattern matches anywhere in the string by default. Using `^` anchors it to the start and `$` anchors it to the end.
+For example, the regex pattern equivalent for `*log` glob pattern, is `log$`.
+
 There are three types of regular expressions:
 
 | Name | grep Switch | Power | Speed | Standard |
