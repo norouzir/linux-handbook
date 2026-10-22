@@ -7,10 +7,10 @@ For example, the glob pattern equivalent for `log$` regex pattern, is `*log`.
 
 | Character | Meaning | Example |
 | --- | --- | --- |
-| * | Any string, including empty | $ ls c*.txt<br>cake.txt  c2.txt |
-| ? | Any single character | $ ls b??d<br>bard  bird |
-| [...] | Multiple options for single character position | $ ls p[ui]t<br>pit  put<br>$ ls f[a-dt-v]ll<br>fall  full |
-| [!...] | Negate | $ ls f[!a-dt-v]ll<br>fill  fell |
+| `*` | Any string, including empty | `$ ls c*.txt`<br>`cake.txt  c2.txt` |
+| `?` | Any single character | `$ ls b??d`<br>`bard  bird` |
+| `[...]` | Multiple options for single character position | `$ ls p[ui]t`<br>`pit  put`<br>`$ ls f[a-dt-v]ll`<br>`fall  full` |
+| `[!...]` | Negate | `$ ls f[!a-dt-v]ll`<br>`fill  fell` |
 
 Globbing is performed by the shell, not by the command itself. The shell expands patterns into matching pathnames, then passes the resulting arguments to the command.
 
@@ -255,7 +255,7 @@ $ ls
 pic1.jpeg  pic2.jpeg
 $ printf '%s  ' *.webp; echo
 *.webp  
-$ shopt -s failglob 
+$ shopt -s failglob
 $ printf '%s  ' *.webp; echo
 bash: no match: *.webp
 $ echo $?

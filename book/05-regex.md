@@ -27,13 +27,13 @@ ERE special characters and special character classes:
 </thead>
 <tbody>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>.</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Any character except newline character</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>*</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Zero or more times of the preceding character</td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>*</code></td><td style="border: 1px solid #999; padding: 4px 8px;"><b>Zero or more</b> times of the preceding character</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Character class</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>^</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Start of the line / Negate</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>$</code></td><td style="border: 1px solid #999; padding: 4px 8px;">End of the line</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>{}</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Interval of preceding character</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>+</code></td><td style="border: 1px solid #999; padding: 4px 8px;">One or more times of the preceding character</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>?</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Zero or one time of the preceding character</td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>+</code></td><td style="border: 1px solid #999; padding: 4px 8px;"><b>One or more</b> times of the preceding character</td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>?</code></td><td style="border: 1px solid #999; padding: 4px 8px;"><b>Zero or one</b> time of the preceding character</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>|</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Or</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>()</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Group two or more characters as one</td></tr>
 </tbody>
@@ -48,12 +48,12 @@ ERE special characters and special character classes:
 </tr>
 </thead>
 <tbody>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:alpha:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to [a-zA-Z]</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:alnum:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to [a-zA-Z0-9]</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:digit:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to [0-9]</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:lower:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to [a-z]</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:upper:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to [A-Z]</td></tr>
-<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:punct:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">A punctuation character, such as !, #, $, and @</td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:alpha:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to <code>[a-zA-Z]</code></td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:alnum:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to <code>[a-zA-Z0-9]</code></td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:digit:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to <code>[0-9]</code></td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:lower:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to <code>[a-z]</code></td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:upper:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Equivalent to <code>[A-Z]</code></td></tr>
+<tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:punct:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">A punctuation character, such as <code>!</code>, <code>#</code>, <code>$</code>, and <code>@</code></td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:blank:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">A space or Tab character</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:space:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Any whitespace character: space, Tab, NL (newline), FF (formfeed), VT (vertical tab), CR (carriage return)</td></tr>
 <tr><td style="border: 1px solid #999; padding: 4px 8px;"><code>[[:print:]]</code></td><td style="border: 1px solid #999; padding: 4px 8px;">Any printable character</td></tr>

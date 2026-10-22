@@ -2,51 +2,51 @@
 
 Searches for patterns in files and, by default, prints each line that contains a match.
 
-`grep -G PATTERN FILE` is equivalent to `sed -n /PATTERN/p FILE`.
+`grep -G <PATTERN> <FILE>` is equivalent to `sed -n /PATTERN/p <FILE>`.
 
-Debian includes the variant programs `egrep`, `fgrep`, and `rgrep` which are the same as `grep -E`, `grep -F`, and `grep -r`, respectively. These variants are deprecated. For portability reasons, it is recommended to use `grep` with the related option only.
+Debian includes the variant programs `egrep`, `fgrep`, and `rgrep`, which are the same as `grep -E`, `grep -F`, and `grep -r`, respectively. These variants are deprecated. For portability reasons, it is recommended to use `grep` with the corresponding option instead.
 
 Exit status: `0` if a line is selected; `1` if no lines were selected; `2` if an error occurred.
 However, if `-q` is used and a line is selected, the exit status is `0` even if an error occurred.
 
 | Short | Long | Description |
 | --- | --- | --- |
-| -F | --fixed-strings | Interpret pattern as normal non-regex text. |
-| -G | --basic-regexp | Interpret patterns as basic regular expressions (BREs). This is the default. |
-| -E | --extended-regexp | Interpret patterns as extended regular expressions (EREs). |
-| -P | --perl-regexp | Interpret patterns as Perl-compatible regular expressions (PCREs). |
-| -v | --invert-match | Invert the sense of matching, to select non-matching lines. |
-| -i | --ignore-case | Ignore case distinctions in patterns and input data. |
-|  | --no-ignore-case | Do not ignore case distinctions in patterns and input data. This is the default. This option is useful for passing to shell scripts that already use -i, to cancel its effects because the two options override each other. |
-| -r | --recursive | Read all files under each directory, recursively, following symbolic links only if they are on the command line. Is equivalent to -d recursive. |
-| -o | --only-matching | Print only the matched (non-empty) parts of a matching line |
-| -e PATTERN | --regexp=PATTERN | Use PATTERN as the patterns. If this option is used multiple times or is combined with the -f option, search for all patterns given. This option can be used to protect a pattern beginning with -. |
-| -f FILE | --file=FILE | Obtain patterns from FILE, one per line. |
-| -c | --count | Suppress normal output and instead, print a count of matching lines for each input file. |
-| -n | --line-number | Prefix each line of output with the 1-based line number within its input file. |
-| -b | --byte-offset | Print the 0-based byte offset within the input file before each line of output. If -o is specified, print the offset of the matching part itself. |
-| -w | --word-regexp | Select only those lines where the match forms a whole word. Conceptually, the matching substring must be (^\|NWCC)PATTERN($\|NWCC) where NWCC stands for "non-word constituent character". Word-constituent characters are letters, digits, and the underscore. |
-| -x | --line-regexp | Select only those matches that exactly match the whole line. Is equivalent to ^PATTERN$. |
-| -l | --files-with-matches | Suppress normal output and instead, print the name of each input file from which output would normally have been printed. Scanning each input file stops upon first match. |
-| -L | --files-without-match | Suppress normal output and instead, print the name of each input file from which no output would normally have been printed. |
-| -m NUM | --max-count=NUM | Stop reading a file after NUM matching lines. |
-| -q | --quiet --silent | Do not write anything to standard output. Exit immediately with 0 status if any match is found, 1 if no match is found, and 2 for errors. |
-| -s | --no-messages | Suppress error messages about nonexistent or unreadable files, but still output matching lines to standard output. |
-| -h | --no-filename | Suppress the prefixing of file names on output. This is the default when there is only one file (or only standard input) to search. |
-| -H | --with-filename | Print the file name for each match. This is the default when there is more than one file to search. |
-| -T | --initial-tab | Make sure that the first character of actual line content lies on a tab stop, so that the alignment of tabs looks normal. This is useful with options that prefix their output to the actual content (-H, -n and -b). |
-| -A NUM | --after-context=NUM | Print NUM lines of trailing context after matching lines. |
-| -B NUM | --before-context=NUM | Print NUM of leading context before matching lines. |
-| -C NUM | --context=NUM | Print NUM lines of output context. |
-|  | --group-separator=SEP | When -A, -B, or -C are in use, print SEP instead of -- between groups of lines. |
-|  | --no-group-separator | When -A, -B, or -C are in use, do not print a separator between groups of lines. |
-| -d ACTION | --directories=ACTION | If an input file is a directory, use ACTION to process it. By default, ACTION is read, i.e., read directories just as if they were ordinary files.  If ACTION is skip, silently skip directories. If ACTION is recurse, read all files under each directory, recursively (is equivalent to -r). |
-|  | --exclude=GLOB | Skip any file with a name that matches GLOB (using wildcards). |
-|  | --exclude-dir=GLOB | Skip any directory with a name that matches GLOB (using wildcards). |
-|  | --exclude-from=FILE | Same as --exclude, but reading from the FILE. |
-|  | --include=GLOB | Search only files whose base name matches GLOB. If contradictory --include and --exclude options are given, the last matching one wins. If no --include or --exclude options match, a file is included unless the first such option is --include. |
+| `-F` | `--fixed-strings` | Interpret the pattern as normal non-regex text. |
+| `-G` | `--basic-regexp` | Interpret patterns as basic regular expressions (BREs). This is the default. |
+| `-E` | `--extended-regexp` | Interpret patterns as extended regular expressions (EREs). |
+| `-P` | `--perl-regexp` | Interpret patterns as Perl-compatible regular expressions (PCREs). |
+| `-v` | `--invert-match` | Invert the sense of matching, to select non-matching lines. |
+| `-i` | `--ignore-case` | Ignore case distinctions in patterns and input data. |
+|  | `--no-ignore-case` | Do not ignore case distinctions in patterns and input data. This is the default. This option is useful when passing to shell scripts that already use `-i`, to cancel its effect because the two options override each other. |
+| `-r` | `--recursive` | Read all files under each directory, recursively, following symbolic links only if they are on the command line. This is equivalent to `-d recursive`. |
+| `-o` | `--only-matching` | Print only the matched (non-empty) parts of a matching line. |
+| `-e <PATTERN>` | `--regexp=<PATTERN>` | Use `<PATTERN>` as the pattern(s). If this option is used multiple times or is combined with the `-f` option, search for all patterns given. This option can be used to protect a pattern beginning with `-`. |
+| `-f <FILE>` | `--file=<FILE>` | Obtain patterns from `<FILE>`, one per line. |
+| `-c` | `--count` | Suppress normal output and instead print a count of matching lines for each input file. |
+| `-n` | `--line-number` | Prefix each line of output with the 1-based line number within its input file. |
+| `-b` | `--byte-offset` | Print the 0-based byte offset within the input file before each line of output. If `-o` is specified, print the offset of the matching part itself. |
+| `-w` | `--word-regexp` | Select only those lines where the match forms a whole word. Conceptually, the matching substring must be `(^\|NWCC)<PATTERN>($\|NWCC)`, where NWCC stands for "non-word constituent character". Word-constituent characters are letters, digits, and the underscore. |
+| `-x` | `--line-regexp` | Select only those matches that exactly match the whole line. This is equivalent to `^<PATTERN>$`. |
+| `-l` | `--files-with-matches` | Suppress normal output and instead print the name of each input file from which output would normally have been printed. Scanning each input file stops upon the first match. |
+| `-L` | `--files-without-match` | Suppress normal output and instead print the name of each input file from which no output would normally have been printed. |
+| `-m <NUM>` | `--max-count=<NUM>` | Stop reading a file after `<NUM>` matching lines. |
+| `-q` | `--quiet`, `--silent` | Do not write anything to standard output. Exit immediately with 0 status if any match is found, 1 if no match is found, and 2 for errors. |
+| `-s` | `--no-messages` | Suppress error messages about nonexistent or unreadable files, but still output matching lines to standard output. |
+| `-h` | `--no-filename` | Suppress the prefixing of file names on output. This is the default when there is only one file (or only standard input) to search. |
+| `-H` | `--with-filename` | Print the file name for each match. This is the default when there is more than one file to search. |
+| `-T` | `--initial-tab` | Make sure that the first character of the actual line content lies on a tab stop, so that the alignment of tabs looks normal. This is useful with options that prefix their output to the actual content (`-H`, `-n`, and `-b`). |
+| `-A <NUM>` | `--after-context=<NUM>` | Print `<NUM>` lines of trailing context after matching lines. |
+| `-B <NUM>` | `--before-context=<NUM>` | Print `<NUM>` lines of leading context before matching lines. |
+| `-C <NUM>` | `--context=<NUM>` | Print `<NUM>` lines of output context. |
+|  | `--group-separator=<SEP>` | When `-A`, `-B`, or `-C` are in use, print `<SEP>` instead of `--` between groups of lines. |
+|  | `--no-group-separator` | When `-A`, `-B`, or `-C` are in use, do not print a separator between groups of lines. |
+| `-d <ACTION>` | `--directories=<ACTION>` | If an input file is a directory, use `<ACTION>` to process it. By default, `<ACTION>` is `read`, i.e., read directories just as if they were ordinary files. If `<ACTION>` is `skip`, silently skip directories. If `<ACTION>` is `recurse`, read all files under each directory, recursively (equivalent to `-r`). |
+|  | `--exclude=<GLOB>` | Skip any file with a name that matches `<GLOB>` (using wildcards). |
+|  | `--exclude-dir=<GLOB>` | Skip any directory with a name that matches `<GLOB>` (using wildcards). |
+|  | `--exclude-from=<FILE>` | Same as `--exclude`, but reading from `<FILE>`. |
+|  | `--include=<GLOB>` | Search only files whose base name matches `<GLOB>`. If contradictory `--include` and `--exclude` options are given, the last matching one wins. If no `--include` or `--exclude` options match, a file is included unless the first such option is `--include`. |
 
-Examples (for `-G`, `-E`, and `-P` examples, check the [RegEx](05-regex.md) section):
+Examples (for `-G`, `-E`, and `-P` examples, see the [RegEx](05-regex.md) section):
 
 ```bash
 $ grep error app.log log.txt
