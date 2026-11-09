@@ -10,7 +10,9 @@ By default, patterns are treated as substrings. If at least one unescaped globbi
 
 It displays only files that the user running the command is allowed to access (read and execute permission on all parent directories). The search index is built by `root` and may contain information about files that ordinary users cannot access. To read this index without running the entire program as root, `plocate` uses the `setgid` bit. However, access to the index does not mean that every file listed in it will be shown: `plocate` checks file visibility using the permissions of the user who ran the command and excludes files that user is not allowed to access.
 
-Exit status: `0` if a match was found or `--help`/`--version` were passed; `1` if an error occurred or no matches were found.
+Exit status:
+- `0`: match.
+- `1`: error or no match.
 
 | Short | Long | Description |
 | --- | --- | --- |
@@ -27,8 +29,8 @@ Exit status: `0` if a match was found or `--help`/`--version` were passed; `1` i
 | `-N` | `--literal` | Print entry names without quoting. When printing to a terminal, plocate normally escapes characters that can cause trouble (control characters and `'`, `"`, `\`, and backtick) — using a GNU `ls`-style `$'...'` quoting — so filenames containing them are safe for a shell. Output to a pipe or other non-terminal is unquoted by default; use `-N` to suppress even the terminal-side quoting. |
 | `-q`\* | `--quiet` | Write no messages about errors encountered while reading and processing databases. |
 | `-S`\* | `--statistics` | Write statistics about each read database to standard output instead of searching for files and exit successfully. |
-| `-h` | `--help` | Print out usage information, then exit successfully. |
-| `-V` | `--version` | Print out version information, then exit successfully. |
+| `-h` | `--help` | Print help, then exit with status `0`. |
+| `-V` | `--version` | Print version information, then exit with status `0`. |
 > \* Not available in `plocate`. Checking `locate --version` can help.
 
 `LOCATE_PATH`: Colon-separated list of database paths. If set, is appended to the databases given by `--database` (or the default). In GNU/BSD `locate` it replaces the default database instead.

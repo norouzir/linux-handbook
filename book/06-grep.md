@@ -6,7 +6,10 @@ Searches for patterns in files and, by default, prints each line that contains a
 
 Debian includes the variant programs `egrep`, `fgrep`, and `rgrep`, which are the same as `grep -E`, `grep -F`, and `grep -r`, respectively. These variants are deprecated. For portability reasons, it is recommended to use `grep` with the corresponding option instead.
 
-Exit status: `0` if a line is selected; `1` if no lines were selected; `2` if an error occurred.
+Exit status:
+- `0`: match.
+- `1`: no match.
+- `2`: error.
 However, if `-q` is used and a line is selected, the exit status is `0` even if an error occurred.
 
 | Short | Long | Description |
@@ -45,6 +48,8 @@ However, if `-q` is used and a line is selected, the exit status is `0` even if 
 |  | `--exclude-dir=<GLOB>` | Skip any directory with a name that matches `<GLOB>` (using wildcards). |
 |  | `--exclude-from=<FILE>` | Same as `--exclude`, but reading from `<FILE>`. |
 |  | `--include=<GLOB>` | Search only files whose base name matches `<GLOB>`. If contradictory `--include` and `--exclude` options are given, the last matching one wins. If no `--include` or `--exclude` options match, a file is included unless the first such option is `--include`. |
+|  | `--help` | Print help, then exit with status `0`. |
+| `-V` | `--version` | Print version information, then exit with status `0`. |
 
 Examples (for `-G`, `-E`, and `-P` examples, see the [RegEx](05-regex.md) section):
 

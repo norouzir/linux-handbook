@@ -9,7 +9,9 @@ The database file is binary.
 Config file: `/etc/updatedb.conf`
 Default database file: `/var/lib/plocate/plocate.db`
 
-Exit status: `0` on success, `1` on error.
+Exit status:
+- `0`: success.
+- `1`: error.
 
 ```bash
 $ cat /etc/updatedb.conf
